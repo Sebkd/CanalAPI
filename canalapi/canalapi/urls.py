@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+"""
+Каждый execute() тратит эти лимиты, даже если запрос не успешный. 
+Остатки лимитов нельзя узнать программно, из кода. Только посмотреть в браузере в
+https://console.cloud.google.com/apis/api/sheets.googleapis.com/quotas?project=<id проекта>.
+"""
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
 ]
