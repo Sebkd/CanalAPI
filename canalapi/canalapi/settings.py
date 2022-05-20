@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'django_celery_beat',
 
     'sheetapi',
 ]
@@ -85,7 +86,7 @@ DATABASES = {
         'NAME': 'sheets',
         'USER': 'adm',
         'PASSWORD': '123',
-        'HOST': 'db',
+        'HOST': '0.0.0.0',
         'PORT': '5432',
     }
 }
@@ -139,3 +140,5 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.AdminRenderer', # для выхода в API
     ],
 }
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

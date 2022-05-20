@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from rest_framework.routers import DefaultRouter
+
 """
 Каждый execute() тратит эти лимиты, даже если запрос не успешный. 
 Остатки лимитов нельзя узнать программно, из кода. Только посмотреть в браузере в
@@ -21,6 +23,11 @@ https://console.cloud.google.com/apis/api/sheets.googleapis.com/quotas?project=<
 
 from django.contrib import admin
 from django.urls import path, include
+
+router = DefaultRouter()  # определяем роутер
+# router.register('get-sheet',
+#                 GetSheetViewSet)
+
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
