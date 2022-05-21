@@ -1,11 +1,10 @@
 from rest_framework.serializers import ModelSerializer
 
-from canalapi.sheetapi.models import Sheet
-from canalapi.sheetapi.sheet import get_sheet
+from sheetapi.models import Spreadscheet
 
 
 class SheetModelSerializer(ModelSerializer):
     class Meta:
-        model = Sheet
+        model = Spreadscheet
         fields = '__all__'
 

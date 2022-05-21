@@ -5,8 +5,8 @@ import httplib2
 from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
-from canalapi.sheetapi.models import Sheet
-from canalapi.sheetapi.settings import RANGES, SCOPES, ADD_PATH, CODE_SHEET
+# from canalapi_global.sheetapi.models import Sheet
+from sheetapi.settings import RANGES, SCOPES, ADD_PATH, CODE_SHEET
 
 
 def get_service_canalserice():
@@ -40,8 +40,6 @@ def get_sheet():
 
     # https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/batchGet
     resp = sheet.values().batchGet(spreadsheetId=CODE_SHEET, ranges=RANGES).execute()
-
-    pprint(resp)
     return resp.get('valueRanges')[0].get('values')
 
 
@@ -61,13 +59,13 @@ if __name__ == '__main__':
 
     pprint(resp)
     print()
-
-    data = resp.get('valueRanges')[0].get('values')
-    query = Sheet.delete.all()
-    query.execute()
-    for line in data[1:]:
-        query = Sheet(
-            {'number': int(line[0]),
-             'order': line[1],
-             'cost_dollars': line[2],
-             'delivery_time': line[3]})
+    #
+    # data = resp.get('valueRanges')[0].get('values')
+    # query = Sheet.delete.all()
+    # query.execute()
+    # for line in data[1:]:
+    #     query = Sheet(
+    #         {'number': int(line[0]),
+    #          'order': line[1],
+    #          'cost_dollars': line[2],
+    #          'delivery_time': line[3]})

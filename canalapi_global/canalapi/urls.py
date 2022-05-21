@@ -1,4 +1,4 @@
-"""canalapi URL Configuration
+"""canalapi_global URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from rest_framework.routers import DefaultRouter
 
-from canalapi.sheetapi.views import GetSheetCustomMixinViewSet
+from sheetapi.views import GetSheetCustomMixinViewSet
 
 """
 Каждый execute() тратит эти лимиты, даже если запрос не успешный. 
@@ -30,8 +30,8 @@ router = DefaultRouter()  # определяем роутер
 router.register('get-sheet',
                 GetSheetCustomMixinViewSet)
 
-
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]

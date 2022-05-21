@@ -3,7 +3,7 @@ from pprint import pprint
 import requests
 import xml.etree.ElementTree as ET
 
-from canalapi.sheetapi.settings import HEADERS, URL_CBR, CURRENCY
+from sheetapi.settings import  HEADERS, URL_CBR, CURRENCY
 
 
 def get_currency(url=URL_CBR, headers=HEADERS, currency=CURRENCY):

@@ -4,8 +4,10 @@ from django.shortcuts import render
 from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
-from canalapi.sheetapi.models import Sheet
-from canalapi.sheetapi.serializers import SheetModelSerializer
+from sheetapi.models import Spreadscheet
+from sheetapi.serializers import SheetModelSerializer
+
+from sheetapi.models import put_db
 
 
 class GetSheetCustomMixinViewSet(
@@ -15,6 +17,6 @@ class GetSheetCustomMixinViewSet(
     mixins.DestroyModelMixin,
     mixins.ListModelMixin,
     GenericViewSet):
-    Sheet.put_db()
-    queryset = Sheet.objects.all()
+    # put_db()
+    queryset = Spreadscheet.objects.all()
     serializer_class = SheetModelSerializer
