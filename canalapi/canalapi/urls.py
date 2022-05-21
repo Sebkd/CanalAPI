@@ -15,6 +15,8 @@ Including another URLconf
 """
 from rest_framework.routers import DefaultRouter
 
+from canalapi.sheetapi.views import GetSheetCustomMixinViewSet
+
 """
 Каждый execute() тратит эти лимиты, даже если запрос не успешный. 
 Остатки лимитов нельзя узнать программно, из кода. Только посмотреть в браузере в
@@ -25,8 +27,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 router = DefaultRouter()  # определяем роутер
-# router.register('get-sheet',
-#                 GetSheetViewSet)
+router.register('get-sheet',
+                GetSheetCustomMixinViewSet)
 
 
 urlpatterns = [
