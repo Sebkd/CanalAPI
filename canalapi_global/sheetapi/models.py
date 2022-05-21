@@ -29,3 +29,4 @@ class Sheet(models.Model):
                  'delivery_time': line[3],
                  'cost_ru': int(line[2]) * currency
                  })
+            query.save()
