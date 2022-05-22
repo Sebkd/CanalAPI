@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
 # from canalapi_global.sheetapi.models import Sheet
-from sheetapi.settings import RANGES, SCOPES, ADD_PATH, CODE_SHEET
+from sheetapi.settings import ADD_PATH, SCOPES, CODE_SHEET, RANGES
 
 
 def get_service_canalserice():

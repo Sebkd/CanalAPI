@@ -7,8 +7,6 @@ from rest_framework.viewsets import GenericViewSet
 from sheetapi.models import Spreadscheet
 from sheetapi.serializers import SheetModelSerializer
 
-from sheetapi.models import put_db
-
 
 class GetSheetCustomMixinViewSet(
     mixins.CreateModelMixin,
