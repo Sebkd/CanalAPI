@@ -5,19 +5,23 @@ from django.db import models
 
 
 # Create your models here.
-from sheetapi.currency import get_currency
+
 from sheetapi.sheet import get_sheet
+
+from sheetapi.currency import get_currency
 
 
 class Spreadscheet(models.Model):
     class Meta:
-        app_label = 'sheet_table'
+        app_label = 'sheetapi'
 
     number = models.IntegerField()
     order = models.TextField(primary_key=True, unique=True)
     cost_dollars = models.IntegerField()
     delivery_time = models.DateField()
     cost_ru = models.FloatField(blank=True)
+    is_update = models.BooleanField(default=False)
+    is_delete = models.BooleanField(default=False)
 
 
 def put_db():
