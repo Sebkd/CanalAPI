@@ -14,5 +14,6 @@ class Spreadscheet(models.Model):
     delivery_time = models.DateField()
     cost_ru = models.FloatField(blank=True)
     is_change = models.DateTimeField(auto_now=True)
+    is_update = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True, auto_created=True)
     is_created = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
