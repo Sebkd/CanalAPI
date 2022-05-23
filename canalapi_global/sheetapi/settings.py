@@ -16,3 +16,8 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) '
 URL_CBR = 'http://www.cbr.ru/scripts/XML_daily.asp'
 CURRENCY = 'R01235'
 
+# данные для телеграм-бот
+"""ТУТ_ВАШ_ТОКЕН_КОТОРЫЙ_ВЫДАЛ_BotFather"""
+TOKEN = '5259227325:AAH3aoFTv-AlvvxtNTzkv0L3x1uQ33zQf4A'
+"""@ИМЯ_КАНАЛА"""
+CHANNEL_ID = '@AndyGreyhound'
