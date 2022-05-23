@@ -1,6 +1,10 @@
-import requests
+import datetime
 
-from sheetapi.settings import TOKEN, CHANNEL_ID
+import requests
+from django.db.models import Q
+
+from canalapi_global.sheetapi.models import Spreadscheet
+from canalapi_global.sheetapi.settings import CHANNEL_ID, TOKEN
 
 
 def send_telegram(text: str):
@@ -19,4 +23,4 @@ def send_telegram(text: str):
         raise Exception("post_text error")
 
 if __name__ == '__main__':
-  send_telegram("hello world!")
+    send_telegram("hello world!")

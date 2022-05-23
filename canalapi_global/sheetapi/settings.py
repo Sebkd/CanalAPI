@@ -20,4 +20,10 @@ CURRENCY = 'R01235'
 """ТУТ_ВАШ_ТОКЕН_КОТОРЫЙ_ВЫДАЛ_BotFather"""
 TOKEN = '5259227325:AAH3aoFTv-AlvvxtNTzkv0L3x1uQ33zQf4A'
 """@ИМЯ_КАНАЛА"""
-CHANNEL_ID = '@AndyGreyhound'
+# CHANNEL_ID = '@Canalservice_bot_msgs_v2'
+CHANNEL_ID = '-1001524835731'
+"""https://api.telegram.org/bot<YourBOTToken>/getUpdates 
+and get the chat_id under the key message['chat']['id']"""
+"""https://api.telegram.org/bot5259227325:AAH3aoFTv-AlvvxtNTzkv0L3x1uQ33zQf4A/getUpdates"""
+CHAT_ID = '-1001524835731'
+

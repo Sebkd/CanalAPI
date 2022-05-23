@@ -17,3 +17,6 @@ class Spreadscheet(models.Model):
     is_update = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True, auto_created=True)
     is_created = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
+    is_overdate = models.BooleanField(default=False)
+    is_send_telegram = models.BooleanField(default=False)
+
