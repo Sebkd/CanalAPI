@@ -1,5 +1,5 @@
 """
-WSGI config for canalapi project.
+WSGI config for canalapi_global project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'canalapi.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'canalapi_global.settings')
 
 application = get_wsgi_application()
