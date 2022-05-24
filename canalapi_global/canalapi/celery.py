@@ -4,7 +4,8 @@ import canalapi.tweak_settings
 from celery import Celery
 from celery.schedules import crontab
 
-from sheetapi.tasks import verify_delivery_time, update_db
+from canalapi.settings import CELERY_BROKER_URL, CELERY_RESULT_BACKEND
+from canalapi.tasks import verify_delivery_time, update_db_delay
 from sheetapi.models import Spreadscheet
 
 """
@@ -14,12 +15,13 @@ from sheetapi.models import Spreadscheet
 redis-server
 из папки CanalAPI/canalapi_global$ 
 celery -A canalapi.celery worker --loglevel=debug --concurrency=4
+celery -A canalapi.celery beat
 """
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'canalapi.settings')
 
-app = Celery('canalapi-v2')
-app.config_from_object('django.conf:settings')
+app = Celery('canalapi-v2', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
@@ -36,5 +38,5 @@ def setup_periodic_task(sender, **kwargs):
     # периодическая проверка обновления базы 1р/2час? c 8 до 18
     sender.add_periodic_task(
         crontab(minute=0, hour='*/2, 8-18'),
-        update_db(cls=Spreadscheet)
+        update_db_delay(cls=Spreadscheet)
     )

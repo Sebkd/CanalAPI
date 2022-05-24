@@ -30,11 +30,11 @@ def spreadscheet_pre_save(sender, instance, signal, *args, **kwargs):
     if instance.delivery_time > datetime.date.today() and \
             instance.is_send_telegram == False and \
             instance.is_active == True:
-        instance.is_overdate = True, True
-        if send_telegram_bot.delay(f'Просроченный заказ {instance.order}, '
-                                f'дата поставки {str(instance.delivery_time)}, '
-                                f'сумма, руб: {instance.cost_ru}'):
-            instance.is_send_telegram = True
+        instance.is_overdate = True
+        # if send_telegram_bot.delay(f'Просроченный заказ {instance.order}, '
+        #                         f'дата поставки {str(instance.delivery_time)}, '
+        #                         f'сумма, руб: {instance.cost_ru}'):
+        instance.is_send_telegram = True
 
 
     # queryset = Spreadscheet.objects.filter(
