@@ -10,6 +10,7 @@ def put_db(cls, is_update=False):
     :param is_update: было обновление или нет (флаг нужный для пометки удаленных счетов)
     :return: без
     """
+    print('put_db')
     data = get_sheet()
     currency = float(get_currency().replace(',', '.'))
     for line in data[1:]:

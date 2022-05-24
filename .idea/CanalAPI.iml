@@ -6,6 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="$MODULE_DIR$/requirements.txt" />
+    <option name="requirementsPath" value="$MODULE_DIR$/canalapi_global/requirements.txt" />
   </component>
 </module>
