@@ -1,12 +1,15 @@
-from django.utils.datetime_safe import datetime
 from sheetapi.get_sheet import get_sheet
 from sheetapi.get_currency import get_currency
 from dateutil.parser import parse
 
-from sheetapi.models import Spreadscheet
 
-
-def put_db(is_update=False):
+def put_db(cls, is_update=False):
+    """
+    Загрузка данных в базу, еще и проверит на предмет просроченной даты
+    :param cls: класс
+    :param is_update: было обновление или нет (флаг нужный для пометки удаленных счетов)
+    :return: без
+    """
     data = get_sheet()
     currency = float(get_currency().replace(',', '.'))
     for line in data[1:]:
@@ -18,5 +21,5 @@ def put_db(is_update=False):
             'cost_ru': round(int(line[2]) * currency, 2),
             'is_update': is_update,
         }
-        query = Spreadscheet(**spreadscheet_data)
+        query = cls(**spreadscheet_data)
         query.save()

@@ -5,8 +5,9 @@ from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
 from sheetapi.models import Spreadscheet
-from sheetapi.operation_db import update_db, overdate_transfer
-from sheetapi.serializers import SheetModelSerializer
+from sheetapi.serializers import SheetModelSerializer, SimpleSheetModelSerializer
+
+"""просто получение данных с базы"""
 
 
 class GetSheetCustomMixinViewSet(
@@ -16,7 +17,5 @@ class GetSheetCustomMixinViewSet(
     mixins.DestroyModelMixin,
     mixins.ListModelMixin,
     GenericViewSet):
-    update_db()
-    overdate_transfer()
     queryset = Spreadscheet.objects.all()
-    serializer_class = SheetModelSerializer
+    serializer_class = SimpleSheetModelSerializer
