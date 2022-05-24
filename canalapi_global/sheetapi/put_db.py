@@ -15,7 +15,7 @@ def put_db(is_update=False):
             'order': line[1],
             'cost_dollars': line[2],
             'delivery_time': parse(line[3]).date(),
-            'cost_ru': int(line[2]) * currency,
+            'cost_ru': round(int(line[2]) * currency, 2),
             'is_update': is_update,
         }
         query = Spreadscheet(**spreadscheet_data)

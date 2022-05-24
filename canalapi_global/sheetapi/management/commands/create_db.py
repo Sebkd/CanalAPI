@@ -1,12 +1,9 @@
 from django.core.management import BaseCommand
 
-from sheetapi.put_db import put_db
-
-from sheetapi.models import Spreadscheet
+from sheetapi.operation_db import create_db
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        Spreadscheet.objects.all().delete()
-        put_db()
+        create_db()

@@ -1,10 +1,8 @@
-import datetime
+
 
 import requests
-from django.db.models import Q
 
-from canalapi_global.sheetapi.models import Spreadscheet
-from canalapi_global.sheetapi.settings import CHANNEL_ID, TOKEN
+from sheetapi.settings import CHANNEL_ID, TOKEN
 
 
 def send_telegram(text: str):

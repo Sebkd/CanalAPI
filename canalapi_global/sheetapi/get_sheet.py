@@ -5,7 +5,6 @@ import httplib2
 from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
-# from canalapi_global.sheetapi.models import Sheet
 from sheetapi.settings import ADD_PATH, SCOPES, CODE_SHEET, RANGES
 
 
