@@ -1,4 +1,30 @@
 # CanalAPI
 
-sudo apt-get install libpq-dev python3-dev
-перед установкой pip install psycopg2
+Необходимо разработать скрипт на языке Python 3, 
+
+который будет выполнять следующие функции:
+
+1. Получать данные с документа при помощи Google API, сделанного в 
+ [Google Sheets]
+ (https://docs.google.com/spreadsheets/
+ d/1f-qZEX1k_3nj5cahOzntYAnvO4ignbyesVO7yuBdv_g/edit) 
+ (необходимо копировать в свой Google аккаунт и выдать самому себе права).
+Данные должны добавляться в БД, в том же виде, что и 
+ в файле –источнике, с добавлением колонки «стоимость в руб.»
+    
+    a. Необходимо создать DB самостоятельно, СУБД на основе PostgreSQL.
+    
+ [ЦБ РФ](https://www.cbr.ru/development/SXML/).
+    
+Скрипт работает постоянно для обеспечения обновления данных 
+ онлайн режиме (необходимо учитывать, что строки в Google Sheets
+таблицу могут удаляться, добавляться и изменяться).
+
+Инструкция:
+1) установка всех библиотек из requirements.txt
+2) через docker-compose.yml установка БД Postgres
+3) python manage.py create_db  - для создания БД
+4) Обновление БД сделано периодической задачей, если позиция ушла, то она помечается
+как не активная
+5) ссылка на документ: https://docs.google.com/spreadsheets/d/1XQanaCg8lqBG1tt4pY0A1jYLJfL0cLDNft0AFkhd4wg/edit#gid=0
+
